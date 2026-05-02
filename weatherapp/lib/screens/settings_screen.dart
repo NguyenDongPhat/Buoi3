@@ -64,10 +64,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   setState(() {
                     _temperatureUnit = val;
                   });
-                  // Notify provider to reload preferences
                   try {
                     final provider = Provider.of<WeatherProvider>(context, listen: false);
                     await provider.initialize();
+                    if (provider.currentWeather != null) {
+                      await provider.fetchWeatherByCity(provider.currentWeather!.cityName);
+                    }
                   } catch (_) {}
                 },
               ),
