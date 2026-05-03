@@ -2,7 +2,6 @@
 
 Ứng dụng dự báo thời tiết hoàn chỉnh được xây dựng bằng Flutter, tích hợp dữ liệu từ OpenWeatherMap API.
 
-
 ## Các tính năng chính
 
 <ul>
