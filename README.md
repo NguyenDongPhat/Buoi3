@@ -1,6 +1,6 @@
 # Weather App - Flutter Project
 
-Ứng dụng dự báo thời tiết hoàn chỉnh được xây dựng bằng Flutter, tích hợp dữ liệu từ OpenWeatherMap API.
+Ứng dụng dự báo thời tiết được xây dựng bằng Flutter, tích hợp dữ liệu từ OpenWeatherMap API.
 
 ## Các tính năng chính
 
