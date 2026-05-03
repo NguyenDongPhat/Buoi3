@@ -2,7 +2,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
 class LocationService {
-  // Check location permission
   Future<bool> checkPermission() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
@@ -24,7 +23,6 @@ class LocationService {
     return true;
   }
   
-  // Get current position
   Future<Position> getCurrentLocation() async {
     bool hasPermission = await checkPermission();
     
@@ -37,7 +35,6 @@ class LocationService {
     );
   }
   
-  // Get city name from coordinates
   Future<String> getCityName(double lat, double lon) async {
     try {
       List<Placemark> placemarks = await placemarkFromCoordinates(lat, lon);

@@ -15,14 +15,12 @@ class CurrentWeatherCard extends StatelessWidget {
     final provider = Provider.of<WeatherProvider>(context);
     final tempSuffix = provider.temperatureUnit == 'Fahrenheit' ? '°F' : '°C';
     
-    // Kiểm tra xem hiện tại là ngày hay đêm
     bool isNight = weather.dateTime.isAfter(weather.sunset) || 
                    weather.dateTime.isBefore(weather.sunrise);
 
     return Container(
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        // Truyền thêm isNight vào hàm
         gradient: _getWeatherGradient(weather.mainCondition, isNight), 
       ),
       child: Column(
@@ -64,26 +62,24 @@ class CurrentWeatherCard extends StatelessWidget {
   }
   
   LinearGradient _getWeatherGradient(String condition, bool isNight) {
-    // Ưu tiên check ban đêm trước
     if (isNight) {
       return LinearGradient(
-        colors: [Color(0xFF2D3748), Color(0xFF1A202C)], // Màu Night theo đề
+        colors: [Color(0xFF2D3748), Color(0xFF1A202C)],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
       );
     }
 
-    // Ban ngày thì check theo thời tiết (Mã màu theo đề tài)
     switch (condition.toLowerCase()) {
       case 'clear':
         return LinearGradient(
-          colors: [Color(0xFFFDB813), Color(0xFF87CEEB)], // Màu Sunny theo đề
+          colors: [Color(0xFFFDB813), Color(0xFF87CEEB)],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         );
       case 'clouds':
         return LinearGradient(
-          colors: [Color(0xFFA0AEC0), Color(0xFFCBD5E0)], // Màu Cloudy theo đề
+          colors: [Color(0xFFA0AEC0), Color(0xFFCBD5E0)],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         );
@@ -91,7 +87,7 @@ class CurrentWeatherCard extends StatelessWidget {
       case 'drizzle':
       case 'thunderstorm':
         return LinearGradient(
-          colors: [Color(0xFF4A5568), Color(0xFF718096)], // Màu Rainy theo đề
+          colors: [Color(0xFF4A5568), Color(0xFF718096)],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         );

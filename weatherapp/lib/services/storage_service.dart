@@ -6,16 +6,16 @@ class StorageService {
   static const String _weatherKey = 'cached_weather';
   static const String _lastUpdateKey = 'last_update';
   static const String _favoriteCitiesKey = 'favorite_cities';
-  static const String _searchHistoryKey = 'search_history';
+  static const String _searchHistoryKey = 'search_history'; // Key lưu lịch sử tìm kiếm
   
-  // Save weather data
+  // Lưu trữ dữ liệu thời tiết
   Future<void> saveWeatherData(WeatherModel weather) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_weatherKey, json.encode(weather.toJson()));
     await prefs.setInt(_lastUpdateKey, DateTime.now().millisecondsSinceEpoch);
   }
   
-  // Get cached weather data
+  // Lấy dữ liệu thời tiết đã lưu (cache)
   Future<WeatherModel?> getCachedWeather() async {
     final prefs = await SharedPreferences.getInstance();
     final weatherJson = prefs.getString(_weatherKey);
@@ -26,7 +26,7 @@ class StorageService {
     return null;
   }
   
-  // Check if cache is valid (less than 30 minutes old)
+  // Kiểm tra thời gian cache (ví dụ: < 30 phút là hợp lệ)
   Future<bool> isCacheValid() async {
     final prefs = await SharedPreferences.getInstance();
     final lastUpdate = prefs.getInt(_lastUpdateKey);
@@ -34,10 +34,10 @@ class StorageService {
     if (lastUpdate == null) return false;
     
     final difference = DateTime.now().millisecondsSinceEpoch - lastUpdate;
-    return difference < 30 * 60 * 1000; // 30 minutes
+    return difference < 30 * 60 * 1000;
   }
   
-  // Save/get favorite cities
+  // LƯU TRỮ VÀ LẤY DANH SÁCH YÊU THÍCH
   Future<void> saveFavoriteCities(List<String> cities) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_favoriteCitiesKey, cities);
@@ -48,7 +48,8 @@ class StorageService {
     return prefs.getStringList(_favoriteCitiesKey) ?? [];
   }
 
-  // Save/get search history
+  // LƯU TRỮ VÀ LẤY LỊCH SỬ TÌM KIẾM
+  // ĐÂY CHÍNH LÀ HÀM BẠN BỊ THIẾU
   Future<void> saveSearchHistory(List<String> history) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_searchHistoryKey, history);
@@ -59,7 +60,7 @@ class StorageService {
     return prefs.getStringList(_searchHistoryKey) ?? [];
   }
 
-  // Settings persistence
+  // CÀI ĐẶT NGƯỜI DÙNG (C/F, tốc độ gió, định dạng giờ)
   static const String _temperatureUnitKey = 'temperature_unit';
   static const String _windSpeedUnitKey = 'wind_speed_unit';
   static const String _timeFormatKey = 'time_format';
@@ -94,4 +95,3 @@ class StorageService {
     return prefs.getString(_timeFormatKey) ?? '24h';
   }
 }
-

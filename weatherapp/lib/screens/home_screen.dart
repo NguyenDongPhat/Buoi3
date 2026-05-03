@@ -58,7 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Consumer<WeatherProvider>(
           builder: (context, provider, child) {
             String formatWind(double speed) {
-              // Determine base unit from API (based on temperature preference)
               final baseUnit = provider.temperatureUnit == 'Fahrenheit' ? 'mph' : 'm/s';
               final target = provider.windSpeedUnit;
               double value = speed;
@@ -161,7 +160,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       WeatherDetailItem(
                         icon: Icons.wb_sunny_outlined,
                         label: 'Sunrise',
-                        value: DateFormatter.formatTime(provider.currentWeather!.sunrise),
+                        value: DateFormatter.formatTime(
+                          provider.currentWeather!.sunrise,
+                          use24hFormat: provider.timeFormat == '24h', // Truyền cấu hình vào đây
+                        ),
                       ),
                       WeatherDetailItem(
                         icon: Icons.nightlight_round,

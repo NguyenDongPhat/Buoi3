@@ -7,33 +7,36 @@ import 'package:weatherapp/services/weather_service.dart';
 import 'package:weatherapp/services/location_service.dart';
 import 'package:weatherapp/services/storage_service.dart';
 import 'package:weatherapp/services/connectivity_service.dart';
+import 'package:weatherapp/services/notification_service.dart';
 import 'package:weatherapp/screens/home_screen.dart';
 import 'package:weatherapp/config/api_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
+  final notificationService = NotificationService();
+  await notificationService.init();
+  await notificationService.requestPermission();
+  
   try {
-    // Try loading from .env file (works on mobile/desktop)
     await dotenv.load(fileName: ".env");
   } catch (e) {
-    // Fallback for web platform
     try {
       await dotenv.load();
     } catch (e2) {
-      // Could not load .env file
     }
   }
   
-  // Set API key from .env file
   final apiKey = dotenv.env['OPENWEATHER_API_KEY'] ?? '';
   ApiConfig.setApiKey(apiKey);
   
-  runApp(const MyApp());
+  runApp(MyApp(notificationService: notificationService));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final NotificationService notificationService;
+  
+  const MyApp({Key? key, required this.notificationService}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +54,9 @@ class MyApp extends StatelessWidget {
         Provider<ConnectivityService>(
           create: (_) => ConnectivityService(),
         ),
+        Provider<NotificationService>.value(
+          value: notificationService,
+        ),
         ChangeNotifierProvider(
           create: (context) => LocationProvider(
             context.read<LocationService>(),
@@ -62,11 +68,13 @@ class MyApp extends StatelessWidget {
             context.read<LocationService>(),
             context.read<StorageService>(),
             context.read<ConnectivityService>(),
+            context.read<NotificationService>(),
           ),
         ),
       ],
       child: MaterialApp(
         title: 'Weather App',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
           useMaterial3: true,

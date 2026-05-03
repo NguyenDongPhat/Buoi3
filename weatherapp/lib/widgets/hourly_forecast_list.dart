@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../models/forecast_model.dart';
 import '../providers/weather_provider.dart';
+import 'package:weatherapp/utils/date_formatter.dart';
 
 class HourlyForecastList extends StatelessWidget {
   final List<ForecastModel> forecasts;
@@ -18,7 +18,8 @@ class HourlyForecastList extends StatelessWidget {
     
     // Filter to show 24 hours
     final hourlyForecasts = forecasts.take(8).toList();
-    
+    final provider = Provider.of<WeatherProvider>(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -43,7 +44,8 @@ class HourlyForecastList extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      DateFormat('HH:mm').format(forecast.dateTime),
+                      DateFormatter.formatTime(forecast.dateTime, 
+                      use24hFormat: provider.timeFormat == '24h'),
                       style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),

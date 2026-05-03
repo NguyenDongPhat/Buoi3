@@ -7,7 +7,6 @@ import '../models/forecast_model.dart';
 class WeatherService {
   WeatherService();
   
-  // Get current weather by city name
   Future<WeatherModel> getCurrentWeatherByCity(String cityName, {String? units}) async {
     try {
       final url = ApiConfig.buildUrl(
@@ -32,7 +31,6 @@ class WeatherService {
     }
   }
   
-  // Get current weather by coordinates
   Future<WeatherModel> getCurrentWeatherByCoordinates(
     double lat,
     double lon,
@@ -60,7 +58,6 @@ class WeatherService {
     }
   }
   
-  // Get 5-day forecast
   Future<List<ForecastModel>> getForecast(String cityName, {String? units}) async {
     try {
       final url = ApiConfig.buildUrl(
@@ -88,7 +85,6 @@ class WeatherService {
     }
   }
   
-  // Get weather icon URL
   String getIconUrl(String iconCode) {
     return 'https://openweathermap.org/img/wn/$iconCode@2x.png';
   }

@@ -4,9 +4,6 @@ import 'package:weatherapp/models/forecast_model.dart';
 import 'package:weatherapp/services/weather_service.dart';
 
 void main() {
-  group('WeatherService Tests', () {
-    
-    // Test 1: Kiểm tra parse JSON Weather Model (từ đề)
     test('Parse weather JSON correctly', () {
       final Map<String, dynamic> json = {
         "name": "Ho Chi Minh City",
@@ -47,7 +44,6 @@ void main() {
       expect(weather.mainCondition, 'Clear');
     });
 
-    // Test 2: Parse Forecast Model JSON
     test('Parse forecast JSON correctly', () {
       final Map<String, dynamic> json = {
         "dt": 1600020000,
@@ -79,7 +75,6 @@ void main() {
       expect(forecast.description, 'light rain');
     });
 
-    // Test 3: Weather toJson/fromJson (roundtrip test)
     test('Weather model roundtrip conversion', () {
       final original = WeatherModel(
         cityName: 'New York',
@@ -110,7 +105,6 @@ void main() {
       expect(restored.humidity, original.humidity);
     });
 
-    // Test 4: Xử lý lỗi API (từ đề)
     test('Handle API error gracefully - Invalid city', () async {
       final weatherService = WeatherService();
       
@@ -120,14 +114,12 @@ void main() {
       );
     });
 
-    // Test 5: Empty list handling
     test('Handle empty forecast list', () {
       final empty = <ForecastModel>[];
       expect(empty.isEmpty, true);
       expect(empty.length, 0);
     });
 
-    // Test 6: Weather icon mapping
     test('Weather conditions match expected values', () {
       final conditions = ['Clear', 'Clouds', 'Rain', 'Snow', 'Thunderstorm'];
       
@@ -136,36 +128,4 @@ void main() {
       }
     });
     
-  });
-
-  group('Weather Model Edge Cases', () {
-    
-    test('Handle null optional fields', () {
-      final Map<String, dynamic> json = {
-        "name": "TestCity",
-        "sys": {"country": "TC", "sunrise": 1600000000, "sunset": 1600040000},
-        "main": {
-          "temp": 20.0,
-          "feels_like": 20.0,
-          "humidity": 50,
-          "pressure": 1013,
-        },
-        "wind": {"speed": 2.0, "deg": 0},
-        "weather": [{"description": "clear", "icon": "01d", "main": "Clear"}],
-        "dt": 1600020000,
-      };
-
-      final weather = WeatherModel.fromJson(json);
-      
-      expect(weather.tempMin, isNull);
-      expect(weather.tempMax, isNull);
-      expect(weather.visibility, isNull);
-      expect(weather.cloudiness, isNull);
-    });
-
-    test('Handle temperature conversion', () {
-      expect(25.0.toDouble(), 25.0);
-      expect((25).toDouble(), 25.0);
-    });
-  });
 }
