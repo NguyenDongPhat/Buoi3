@@ -33,8 +33,7 @@
   <img width="428" height="979" alt="image" src="https://github.com/user-attachments/assets/e26db28e-54cc-4734-a19c-b656a7340994" width="200"title="Trời nắng"/>
   <img width="427" height="986" alt="image" src="https://github.com/user-attachments/assets/e1aba55d-d6e5-4300-96c0-049aeced7a25" width="200"title="Tìm kiếm"/>
   <img width="425" height="984" alt="image" src="https://github.com/user-attachments/assets/4f8da09b-1801-4e44-8577-7813d26c8491" width="200"title="Chi tiết thời tiết trong ngày"/>
-
-
+<img width="424" height="982" alt="image" src="https://github.com/user-attachments/assets/2fb69b39-d74e-4953-acd4-dfdc7a5aacb8" width="200"title="Cài đặt"/>
 </p>
 
 
