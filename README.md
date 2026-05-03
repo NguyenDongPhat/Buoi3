@@ -30,7 +30,10 @@
 
 <p align="center">
   <img width="426" height="977" alt="image" src="https://github.com/user-attachments/assets/6ee9b42e-d919-4bc7-a0e3-17b69dfa69e8" width="200" title="Trời mưa"/>
-  <img width="428" height="979" alt="image" src="https://github.com/user-attachments/assets/e26db28e-54cc-4734-a19c-b656a7340994" width="200"/>
+  <img width="428" height="979" alt="image" src="https://github.com/user-attachments/assets/e26db28e-54cc-4734-a19c-b656a7340994" width="200"title="Trời nắng"/>
+  <img width="427" height="986" alt="image" src="https://github.com/user-attachments/assets/e1aba55d-d6e5-4300-96c0-049aeced7a25" width="200"title="Tìm kiếm"/>
+  <img width="425" height="984" alt="image" src="https://github.com/user-attachments/assets/4f8da09b-1801-4e44-8577-7813d26c8491" width="200"title="Chi tiết thời tiết trong ngày"/>
+
 
 </p>
 
