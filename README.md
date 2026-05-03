@@ -1,10 +1,9 @@
-# 🌤️ Weather App - Flutter Project
+# Weather App - Flutter Project
 
 Ứng dụng dự báo thời tiết hoàn chỉnh được xây dựng bằng Flutter, tích hợp dữ liệu từ OpenWeatherMap API.
 
----
 
-## ✨ Các tính năng chính
+## Các tính năng chính
 
 <ul>
   <li><b>Dữ liệu thời tiết thời gian thực:</b> Lấy dữ liệu thời tiết hiện tại và dự báo 5 ngày tới từ OpenWeatherMap API[cite: 1].</li>
@@ -17,19 +16,8 @@
   <li><b>Tùy chỉnh đơn vị:</b> Hỗ trợ chuyển đổi giữa độ C/F, đơn vị tốc độ gió (m/s, km/h) và định dạng thời gian (12h/24h).</li>
 </ul>
 
----
 
-## 📸 Hình ảnh ứng dụng
-
-<p align="center">
-  <img src="screenshots/home_clear.png" width="200" title="Trời nắng">
-  <img src="screenshots/home_rain.png" width="200" title="Trời mưa">
-  <img src="screenshots/search.png" width="200" title="Tìm kiếm">
-</p>
-
----
-
-## 🛠️ Công nghệ sử dụng
+## Công nghệ sử dụng
 
 *   **Framework:** Flutter & Dart
 *   **State Management:** Provider[cite: 1]
@@ -38,9 +26,8 @@
 *   **Lưu trữ:** <code>shared_preferences</code>
 *   **Thông báo:** <code>flutter_local_notifications</code>
 
----
 
-## 🚀 Cách chạy dự án
+## Cách chạy dự án
 
 <ol>
   <li>Clone repository này.</li>
