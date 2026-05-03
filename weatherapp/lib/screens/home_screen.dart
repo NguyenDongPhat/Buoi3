@@ -65,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 if (target == 'km/h') value = speed * 3.6;
                 if (target == 'mph') value = speed * 2.23694;
               } else {
-                // base is mph
                 if (target == 'km/h') value = speed * 1.60934;
                 if (target == 'm/s') value = speed * 0.44704;
               }
@@ -162,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         label: 'Sunrise',
                         value: DateFormatter.formatTime(
                           provider.currentWeather!.sunrise,
-                          use24hFormat: provider.timeFormat == '24h', // Truyền cấu hình vào đây
+                          use24hFormat: provider.timeFormat == '24h',
                         ),
                       ),
                       WeatherDetailItem(
@@ -183,13 +182,6 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           },
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => SearchScreen()),
-        ),
-        child: Icon(Icons.search),
       ),
     );
   }

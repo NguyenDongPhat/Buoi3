@@ -158,7 +158,6 @@ class WeatherProvider extends ChangeNotifier {
       _state = WeatherState.error;
       _errorMessage = e.toString();
       
-      // Try to load cached data
       await loadCachedWeather();
     }
     

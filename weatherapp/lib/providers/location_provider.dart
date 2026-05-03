@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import '../models/location_model.dart';
 import '../services/location_service.dart';
 
@@ -14,12 +13,10 @@ class LocationProvider extends ChangeNotifier {
   
   LocationProvider(this._locationService);
   
-  // Getters
   LocationModel? get currentLocation => _currentLocation;
   LocationState get state => _state;
   String get errorMessage => _errorMessage;
   
-  // Fetch current location
   Future<void> fetchCurrentLocation() async {
     _state = LocationState.loading;
     notifyListeners();
@@ -47,7 +44,6 @@ class LocationProvider extends ChangeNotifier {
     notifyListeners();
   }
   
-  // Check permission
   Future<bool> checkLocationPermission() async {
     try {
       return await _locationService.checkPermission();
@@ -57,7 +53,6 @@ class LocationProvider extends ChangeNotifier {
     }
   }
   
-  // Reset location
   void resetLocation() {
     _currentLocation = null;
     _state = LocationState.initial;
