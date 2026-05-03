@@ -29,8 +29,7 @@
 ## 📸 Hình ảnh ứng dụng
 
 <p align="center">
-  <img src="<img width="426" height="977" alt="image" src="https://github.com/user-attachments/assets/6ee9b42e-d919-4bc7-a0e3-17b69dfa69e8" width="200" title="Trời nắng">
-  <img src="screenshots/home_rain.png" width="200" title="Trời mưa">
+  <img width="426" height="977" alt="image" src="https://github.com/user-attachments/assets/6ee9b42e-d919-4bc7-a0e3-17b69dfa69e8" width="200" title="Trời mưa"/>
   <img src="screenshots/search.png" width="200" title="Tìm kiếm">
 </p>
 
