@@ -38,7 +38,7 @@
 
 <ol>
   <li>Clone repository này.</li>
-  <li>Tạo file <code>.env</code> tại thư mục gốc và thêm API Key: <code>OPENWEATHER_API_KEY=your_key_here</code>.</li>
+  <li>Tạo file <code>.env</code> trong thư mục weatherapp và thêm API Key: <code>OPENWEATHER_API_KEY=your_key_here</code>.</li>
   <li>Chạy lệnh <code>flutter pub get</code> để tải thư viện.</li>
   <li>Chạy ứng dụng bằng <code>flutter run</code>.</li>
 </ol>
