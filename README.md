@@ -30,7 +30,8 @@
 
 <p align="center">
   <img width="426" height="977" alt="image" src="https://github.com/user-attachments/assets/6ee9b42e-d919-4bc7-a0e3-17b69dfa69e8" width="200" title="Trời mưa"/>
-  <img src="screenshots/search.png" width="200" title="Tìm kiếm">
+  <img width="428" height="979" alt="image" src="https://github.com/user-attachments/assets/e26db28e-54cc-4734-a19c-b656a7340994" width="200"/>
+
 </p>
 
 
